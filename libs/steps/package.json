@@ -1,0 +1,12 @@
+{
+  "name": "@cnxe/steps",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.10.0",
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "@cucumber/cucumber": "*"
+  }
+}
