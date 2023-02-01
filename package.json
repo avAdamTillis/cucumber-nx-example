@@ -1,20 +1,29 @@
 {
   "name": "cucumber-nx-example",
   "version": "1.0.0",
-  "description": "Example Project for Cucumber Monorepo",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "private": true,
+  "author": "Adam Tillis <adam.tillis.availity@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/avAdamTillis/cucumber-nx-example/issues"
   },
+  "description": "Example Project for Cucumber Monorepo",
+  "homepage": "https://github.com/avAdamTillis/cucumber-nx-example#readme",
+  "keywords": [],
+  "license": "ISC",
+  "packageManager": "yarn@3.3.1",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/avAdamTillis/cucumber-nx-example.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/avAdamTillis/cucumber-nx-example/issues"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/avAdamTillis/cucumber-nx-example#readme"
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
 }
