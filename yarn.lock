@@ -24,6 +24,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@cnxe/common@workspace:libs/common":
+  version: 0.0.0-use.local
+  resolution: "@cnxe/common@workspace:libs/common"
+  dependencies:
+    "@cucumber/cucumber": ^8.10.0
+    "@types/node": ^18.11.18
+    tslib: ^2.5.0
+    typescript: ^4.9.5
+  peerDependencies:
+    "@cucumber/cucumber": "*"
+  languageName: unknown
+  linkType: soft
+
 "@cnxe/extensions@workspace:libs/extensions":
   version: 0.0.0-use.local
   resolution: "@cnxe/extensions@workspace:libs/extensions"
@@ -425,6 +438,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "cucumber-nx-example@workspace:."
   dependencies:
+    "@types/node": ^18.11.18
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft

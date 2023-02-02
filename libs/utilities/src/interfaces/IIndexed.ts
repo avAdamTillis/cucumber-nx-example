@@ -1,3 +1,1 @@
-export interface IIndexed {
-  [key: number]: any;
-}
+export interface IIndexed extends Array<any> {}

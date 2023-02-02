@@ -3,3 +3,4 @@ export * from './IIndexed';
 export * from './IMapEntry';
 export * from './IResolve';
 export * from './KeyValueSequenceReducer';
+export * from './MapCallback';

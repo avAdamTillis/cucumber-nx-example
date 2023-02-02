@@ -1,7 +1,9 @@
 import '@cnxe/extensions';
+import { logger } from '@cnxe/logger';
 
-import { IDictionary, IIndexed, KeyValueSequenceReducer } from "./interfaces";
+import { IDictionary, IIndexed, KeyValueSequenceReducer } from './interfaces';
 import { CaselessMap } from './CaselessMap';
+import { Resolve } from './Resolve';
 
 type Collection = IDictionary | IIndexed;
 
@@ -159,7 +161,7 @@ export class ObjectOperations<T extends Collection> {
       .join('.')
       .replace(/\.\./g, '.');
 
-    return typy(object, key).safeObject;
+    return Resolve.resolve(object, key);
   }
 
   has(key: keyof T): boolean {
@@ -181,7 +183,7 @@ export class ObjectOperations<T extends Collection> {
    * @param {?*} def Optional value to apply to initialization. Null if empty
    * @return {Object}
    */
-  static initProperty<T, TResult>(obj: T, prop: keyof T, def?: TResult): T {
+  static initProperty<T extends Collection, TResult>(obj: T, prop: keyof T, def?: TResult): T {
     return new ObjectOperations(obj).initProperty(prop, def);
   }
 
@@ -210,8 +212,8 @@ export class ObjectOperations<T extends Collection> {
    * @param {*} item Value to check for type as Object
    * @return {boolean}
    */
-  static isObject(item: Collection): boolean {
-    return typy(item).isObject;
+  static isObject(item: any): boolean {
+    return typeof item === 'object' && item != null && !Array.isArray(item);
   }
 
   isOwnProperty(key: keyof T): boolean {
@@ -320,7 +322,7 @@ export class ObjectOperations<T extends Collection> {
    * @param {Object} sources Objects to apply
    * @return {Object}
    */
-  static merge<T>(target: T, ...sources: Partial<T>[]) {
+  static merge<T extends Collection>(target: T, ...sources: Partial<T>[]) {
     return new ObjectOperations(target).merge(...sources);
   }
 
@@ -339,7 +341,7 @@ export class ObjectOperations<T extends Collection> {
   }
 
   zip<J, K>(other: K[]): [J, K][] {
-    const self = Array.isArray(this.obj) ? this.obj : Object.keys(this.obj);
+    const self = Array.isArray(this.obj) ? this.obj : Object.keys(this.obj) as J[];
     return ObjectOperations.zip(self, other);
   }
 

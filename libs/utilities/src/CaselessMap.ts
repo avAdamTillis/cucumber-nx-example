@@ -1,6 +1,7 @@
-import { IMapEntry } from './interfaces';
+import { LowercaseLogLevel } from '@cnxe/common';
+import { logger } from '@cnxe/logger';
 
-type MapCallback<T> = (value: T, key: string, map: Map<string, T>) => void;
+import { IMapEntry, MapCallback } from './interfaces';
 
 export class CaselessMap<T> extends Map<string, T | IMapEntry<T>> {
   private original: [string, T][];
@@ -49,7 +50,7 @@ export class CaselessMap<T> extends Map<string, T | IMapEntry<T>> {
     return this.original[Symbol.iterator]();
   }
 
-  _logAction(logLevel: LogLevelFunctions, ...args: any): void {
+  _logAction(logLevel: LowercaseLogLevel, ...args: any): void {
     const { [logLevel]: log } = logger;
 
     if (!this.silent && log instanceof Function) {

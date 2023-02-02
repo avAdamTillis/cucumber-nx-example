@@ -1,0 +1,1 @@
+export type MapCallback<T> = (value: T, key: string, map: Map<string, T>) => void;

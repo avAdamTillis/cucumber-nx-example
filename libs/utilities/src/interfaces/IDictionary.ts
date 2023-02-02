@@ -1,3 +1,1 @@
-export interface IDictionary {
-  [key: string]: any;
-}
+export interface IDictionary extends Record<string, any> {}
