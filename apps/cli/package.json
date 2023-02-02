@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@cnxe/steps": "workspace:^",
-    "@cucumber/cucumber": "^8.10.0"
+    "@cucumber/cucumber": "^8.10.0",
+    "tslib": "^2.5.0"
   }
 }
